@@ -5,16 +5,16 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class HomeController extends AbstractController {
+class LocationControler extends AbstractController {
 
     /**
-     * @Route("/", name="home")
+     * @Route("/locations", name="location.index")
      * @return Response
      */
     public function index (): Response
     {
-        return $this->render('pages/home.html.twig', [
-            'current_only' => 'home'
+        return $this->render('location/index.html.twig', [
+            'current_only' => 'locations'
         ]);
     }
 
