@@ -11,6 +11,12 @@
             </div>
         </div>
 
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
         <table class="table table-striped">
             <thead>
             <tr>
@@ -24,6 +30,11 @@
                     <td>{{ property.title }}</td>
                     <td>
                         <a href="{{ path('admin.property.edit', {id: property.id}) }}" class="btn btn-secondary">Editer</a>
+                        <form style="display: inline-block" method="post" action="{{ path('admin.property.delete', {id: property.id}) }}" onsubmit="return confirm('Etes vous vraiment sûr ?')">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ property.id) }}">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button class="btn btn-danger">Supprimer</button>
+                        </form>
                     </td>
                 </tr>
             {% endfor %}
