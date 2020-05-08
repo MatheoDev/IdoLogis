@@ -34,7 +34,10 @@ class AdminPropertyController extends AbstractController {
     public function index()
     {
         $properties = $this->repository->findAll();
-        return $this->render('admin/property/index.html.twig', compact('properties'));
+        return $this->render('admin/property/index.html.twig', [
+            'properties' => $properties,
+            'current_only' => 'admin'
+        ]);
     }
 
     /**

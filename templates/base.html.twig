@@ -26,6 +26,17 @@
                             <a class="nav-link {% if current_only is defined and current_only == 'locations' %}active{% endif %}" href="{{ path('location.index') }}">Louer</a>
                         </li>
                     </ul>
+
+                    {% if app.user %}
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="{{ path('admin.property.index') }}" class="nav-link {% if current_only is defined and current_only == 'admin' %}active{% endif %}">Admin</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ path('logout') }}" class="nav-link text-warning">Se déconnecter</a>
+                            </li>
+                        </ul>
+                    {% endif %}
                 </div>
             </div>
         </nav>
