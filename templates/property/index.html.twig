@@ -7,9 +7,10 @@
         <div class="container">
             <h1 class="mb-4">Voir toutes nos Ventes</h1>
             {{ form_start(form) }}
-                <div class="row align-items-end">
-                    <div class="col-6">{{ form_row(form.maxPrice) }}</div>
-                    <div class="col-6">{{ form_row(form.minSurface) }}</div>
+                <div class="row align-items">
+                    <div class="col-3">{{ form_row(form.maxPrice) }}</div>
+                    <div class="col-3">{{ form_row(form.minSurface) }}</div>
+                    <div class="col-3">{{ form_row(form.options) }}</div>
                     <div class="col-3"><button class="btn btn-primary">Rechercher</button></div>
                 </div>
             {{ form_end(form) }}
